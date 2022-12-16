@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Playlistify - Log In</title>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <h1>Login to Playlistify!</h1>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+    <!-- Main -->
+    <div class="container">
+        <div class="form">
+            <form id="login_form" autocomplete="off" onsubmit="event.preventDefault();">
+                <div class="form_group">
+                    <label>Email</label>
+                    <input type="email" class="login-input" id="email" name="email"/>
+                </div>
+                <div class="form_group">
+                    <label>Password</label>
+                    <input type="password" class="login-input" id="password" name="password"/>
+                </div>
+                <button id="login_user" class="login_button">Login</button>
+            </form>
+        </div>
+    </div>
+    <!-- /Main -->
+    <script src="js/main.js"></script>
+</body>
+</html>
