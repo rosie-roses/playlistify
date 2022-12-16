@@ -1,5 +1,11 @@
 window.addEventListener("load", init);
+
 function init() {
-    console.log("In init()")
+    bindEvents();
 }
-// document.querySelector('#register_user').addEventListener("click", () => {console.log("button clicked")})
+
+function bindEvents() {
+    document.querySelector('#register_user').addEventListener("click", () => {
+        console.log("Register button clicked");
+    });
+}
