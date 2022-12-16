@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
+
 const connectDB = () => {
     try {
-        // MongoDB connection string.
+        //MongoDB connection string.
         mongoose.set("strictQuery", false);
         mongoose.connect(process.env.MONGO_URI, () => {
-            console.log(`Connected to MongoDB.`);
+            console.log("Connected to MongoDB.");
         });
     } catch (err) {
         console.log(err);
