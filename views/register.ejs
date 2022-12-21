@@ -19,24 +19,27 @@
     <!-- Main -->
     <div class="container">
         <div class="form">
-            <form id="register_form" autocomplete="off" onsubmit="event.preventDefault();">
+            <form autocomplete="off">
                 <div class="form_group">
-                    <label>Email</label>
-                    <input type="email" class="register-input" id="email" name="email"/>
+                    <label for="email">Email</label>
+                    <input type="text" class="register-input" name="email" required/>
+                    <div class="email error"></div>
                 </div>
                 <div class="form_group">
-                    <label>Username</label>
-                    <input type="username" class="register-input" id="username" name="username"/>
+                    <label for="username">Username</label>
+                    <input type="text" class="register-input" name="username" required/>
+                    <div class="username error"></div>
                 </div>
                 <div class="form_group">
-                    <label>Password</label>
-                    <input type="password" class="register-input" id="password" name="password"/>
+                    <label for="password">Password</label>
+                    <input type="password" class="register-input" name="password" required/>
+                    <div class="password error"></div>
                 </div>
-                <button id="register_user" class="register_button">Create account</button>
+                <button id="register_user">Create account</button>
             </form>
         </div>
     </div>
     <!-- /Main -->
-    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
 </body>
 </html>

@@ -19,20 +19,22 @@
     <!-- Main -->
     <div class="container">
         <div class="form">
-            <form id="login_form" autocomplete="off" onsubmit="event.preventDefault();">
+            <form autocomplete="off">
                 <div class="form_group">
-                    <label>Email</label>
-                    <input type="email" class="login-input" id="email" name="email"/>
+                    <label for="email">Email</label>
+                    <input type="text" class="login-input" name="email" required/>
+                    <div class="email error"></div>
                 </div>
                 <div class="form_group">
-                    <label>Password</label>
-                    <input type="password" class="login-input" id="password" name="password"/>
+                    <label for="password">Password</label>
+                    <input type="password" class="login-input" name="password" required/>
+                    <div class="password error"></div>
                 </div>
-                <button id="login_user" class="login_button">Login</button>
+                <button id="login_user">Log in</button>
             </form>
         </div>
     </div>
     <!-- /Main -->
-    <script src="js/main.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
