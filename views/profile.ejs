@@ -12,7 +12,10 @@
         <nav>
             <div class="container">
                 <h1>Profile</h1>
-                <a href="/logout">Log out</a>
+                <% if (user) { %>
+                <a href="/logout">Log out</a></div><br>
+                <p>Welcome, <i><%= user.username %> (<%= user.email %>)</i></p>
+                <% } %>
             </div>
         </nav>
     </header>
