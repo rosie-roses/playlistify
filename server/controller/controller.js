@@ -45,6 +45,11 @@ module.exports.register_get = (req, res) => {
     res.render('register');
 }
 
+module.exports.logout_get = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 });
+    res.redirect('/');
+}
+
 module.exports.register_post = async (req, res) => {
     const { email, username, password } = req.body;
     try {
