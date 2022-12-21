@@ -1,7 +1,7 @@
 const express = require('express');
 const generalRouter = express.Router();
-const services = require('../services/render');
+const controller = require('../controller/controller');
 
-generalRouter.get("/", services.indexRoute);
+generalRouter.get('/', controller.index);
 
 module.exports = generalRouter;
