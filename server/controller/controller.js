@@ -74,3 +74,7 @@ module.exports.login_post = async (req, res) => {
         res.status(400).json({ errors });
     }
 }
+
+module.exports.profile = (req, res) => {
+    res.render('profile');
+}

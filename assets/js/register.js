@@ -26,7 +26,7 @@ form.addEventListener('submit', async (ev) => {
             passwordError.textContent = data.errors.password;
         }
         if (data.user) {
-            location.assign('/');
+            location.assign('/login');
         }
     } catch (err) {
         console.log(err);
