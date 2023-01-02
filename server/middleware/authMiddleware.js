@@ -5,7 +5,7 @@ const requireAuth = (req, res, next) => {
     const token = req.cookies.jwt;
     // Check json web token exists and is verified.
     if (token) {
-        jwt.verify(token, 'playlistify secret', (err, decodedToken) => {
+        jwt.verify(token, process.env.TOKEN_SECRET, (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
                 res.redirect('/login');
@@ -23,7 +23,7 @@ const requireAuth = (req, res, next) => {
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
     if (token) {
-        jwt.verify(token, 'playlistify secret', async (err, decodedToken) => {
+        jwt.verify(token, process.env.TOKEN_SECRET, async (err, decodedToken) => {
             if (err) {
                 console.log(err.message);
                 res.locals.user = null;
