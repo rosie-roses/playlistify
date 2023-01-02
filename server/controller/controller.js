@@ -83,3 +83,11 @@ module.exports.login_post = async (req, res) => {
 module.exports.profile = (req, res) => {
     res.render('profile');
 }
+
+module.exports.google_callback_get = async (req, res) => {
+    /* Create cookie so that google authenticate user can pass the authMiddleware check 
+    before going into protected page '/profile'. */
+    const token = createToken(req.user._id);
+    res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.redirect('/profile');
+}
