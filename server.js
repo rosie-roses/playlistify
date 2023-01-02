@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const morgan = require('morgan');
 const bodyparser = require('body-parser');
 const path = require('path');
-const connectDB = require('./server/database/connection');
+const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const session = require('express-session');
@@ -22,7 +22,13 @@ const generalRouter = require('./server/routes/generalRouter');
 const authRouter = require('./server/routes/authRouter');
 
 // MongoDB connection.
-connectDB();
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.MONGO_URI).then(() => {
+    // Listening of server only happens after MongoDB connection is successful.
+    app.listen(PORT, ()=> { console.log(`Server is listening on http://localhost:${PORT}`) });
+}).catch((err) => {
+    console.log(err);
+});
 
 // Log requests.
 app.use(morgan("dev"));
@@ -57,5 +63,3 @@ app.use(passport.session());
 // Load routers.
 app.use(generalRouter);
 app.use(authRouter);
-
-app.listen(3000, ()=> { console.log(`Server is running on http://localhost:${PORT}`) });
