@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Playlistify - Add Track</title>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <h1>Edit your track rating!</h1>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+    <!-- Main -->
+    <div class="container">
+        <div class="form">
+            <form autocomplete="off">
+                <div class="form_group">
+                    <label for="track_name">Track Name</label>
+                    <input type="text" name="track_name" value="<%= trackObj.track %>" disabled/>
+                </div>
+                <div class="form_group">
+                    <label for="track_artist">Track Artist</label>
+                    <input type="text" name="track_artist" value="<%= trackObj.artist %>" disabled/>
+                </div>
+                <div class="form_group">
+                    <label for="track_rating" style="display: inline-block">Star rating</label>
+                    <div class="star-rating">
+                      <input type="radio" name="stars" value="1" <%= rating == 1 ? 'checked':''%>/>
+                      <label for="1-star">1</label><br />
+                      <input type="radio" name="stars" value="2" <%= rating == 2 ? 'checked':''%>/>
+                      <label for="2-star">2</label><br />
+                      <input type="radio" name="stars" value="3"<%= rating == 3 ? 'checked':''%>/>
+                      <label for="3-star">3</label><br />
+                      <input type="radio" name="stars" value="4" <%= rating == 4 ? 'checked':''%>/>
+                      <label for="4-star">4</label><br />
+                      <input type="radio" name="stars" value="5" <%= rating == 5 ? 'checked':''%>/>
+                      <label for="5-star">5</label><br />
+                    </div>
+                </div>
+                <div class="error_output"></div>
+                <button id="add_track">Edit new rating</button>
+            </form>
+        </div>
+    </div>
+    <!-- /Main -->
+    <script src="js/editTrack.js"></script>
+</body>
+</html>

@@ -20,5 +20,29 @@
         </nav>
     </header>
     <!-- /Header -->
+    <table>
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Record</th>
+                <th>Artist</th>
+                <th>Scratch Rating</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i = 0; i < playlist.length; i++) { %>
+                <tr>
+                    <td><td><%= i %></td></td>
+                    <td><%= playlist[i].track %></td>
+                    <td><%= playlist[i].artist %></td>
+                    <td><%= playlist[i].rating %></td>
+                    <td><a href="/edit-track?id=<%= playlist[i].trackID%>">edit</a></td>
+                    <td>delete</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
 </body>
 </html>

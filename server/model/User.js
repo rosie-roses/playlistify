@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
     },
     playlist: [
         {
+            trackID: String,
             track: String,
             artist: String,
             rating: Number,

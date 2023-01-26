@@ -85,8 +85,10 @@ module.exports.login_post = async (req, res) => {
   }
 };
 
-module.exports.profile_get = (req, res) => {
-  res.render("profile");
+module.exports.profile_get = async (req, res) => {
+  const user = await userColl.findOne({ email: res.locals.user.email });
+  const playlist = user.playlist;
+  res.render('profile', { playlist });
 };
 
 module.exports.google_callback_get = async (req, res) => {
@@ -114,7 +116,7 @@ module.exports.addTrack_post = async (req, res) => {
   if (trackObj) {
     // Check if the current user trying to add the already has the track in their playlist.
     for (var i = 0; i < trackObj.ratedBy.length; i++) {
-      if (trackObj.ratedBy[i].user.email === res.locals.user.email) {
+      if (trackObj.ratedBy[i].email === res.locals.user.email) {
         alreadyRated = true;
         break;
       }
@@ -133,10 +135,9 @@ module.exports.addTrack_post = async (req, res) => {
         {
           $push: {
             ratedBy: {
-              user: {
-                email: res.locals.user.email,
-                username: res.locals.user.username,
-              },
+              userID: res.locals.user._id,
+              email: res.locals.user.email,
+              username: res.locals.user.username,
               starRating: rating,
             },
           },
@@ -148,10 +149,11 @@ module.exports.addTrack_post = async (req, res) => {
         {
           $push: {
             playlist: {
+              trackID: trackObj._id,
               track,
               artist,
               rating,
-              imageUrl: "test-img",
+              imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
             }, //inserted data is the object to be inserted
           },
         }
@@ -167,30 +169,30 @@ module.exports.addTrack_post = async (req, res) => {
   // Track being added doesn't exist in the tracks collection.
   else {
     // So add it to the tracks collection.
-    trackColl.insertOne({
+    const addedTrackId = (await trackColl.insertOne({
       track,
       artist,
-      imageUrl: "test-img",
+      imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
       ratedBy: [
         {
-          user: {
-            email: res.locals.user.email,
-            username: res.locals.user.username,
-          },
+          userID: res.locals.user._id,
+          email: res.locals.user.email,
+          username: res.locals.user.username,
           starRating: rating,
         },
       ],
-    });
+  })).insertedId;
     // And add it to the current user's playlist as well.
     userColl.findOneAndUpdate(
       { email: res.locals.user.email },
       {
         $push: {
           playlist: {
+            trackID: addedTrackId,
             track,
             artist,
             rating,
-            imageUrl: "test-img",
+            imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
           }, //inserted data is the object to be inserted
         },
       }
@@ -234,4 +236,46 @@ function getTrackInfo(track, artist) {
     .catch(function (error) {
       console.error(error);
     });
+}
+
+module.exports.editTrack_get = async (req, res) => {
+  const trackID = mongoose.Types.ObjectId(req.query.id);
+  const trackObj = await trackColl.findOne({ _id: trackID });
+  const ratedBy = trackObj.ratedBy;
+  let rating;
+  ratedBy.forEach((obj) => {
+    if (obj.email === res.locals.user.email) {
+      rating = obj.starRating;
+    }
+  });
+  res.render('editTrack', { trackObj, rating });
+}
+
+module.exports.editTrack_post = async (req, res) => {
+  let { track, artist, rating } = req.body;
+  rating = parseInt(rating);
+  const trackObj = await trackColl.findOne({
+    track: { $regex: track, $options: "i" },
+    artist: { $regex: artist, $options: "i" },
+  });
+  if (trackObj) {
+    // Update user's playlist array.
+    userColl.updateOne({ email: res.locals.user.email, 'playlist.track': track, 'playlist.artist': artist }, {
+      $set: {
+        'playlist.$.rating': rating
+      }
+    });
+    // Update track's ratedBy array.
+    trackColl.updateOne({ track: { $regex: track, $options: "i" }, artist: { $regex: artist, $options: "i" }, 'ratedBy.email': res.locals.user.email}, {
+      $set: {
+        'ratedBy.$.starRating': rating
+      }
+    });
+    res.status(200).json({
+      trackObj: {
+        track,
+        artist,
+      },
+    });
+  }
 }
