@@ -279,3 +279,51 @@ module.exports.editTrack_post = async (req, res) => {
     });
   }
 }
+
+module.exports.deleteTrack_get = async (req, res) => {
+  const trackID = mongoose.Types.ObjectId(req.query.id);
+  const trackObj = await trackColl.findOne({ _id: trackID });
+  const ratedBy = trackObj.ratedBy;
+  let rating;
+  ratedBy.forEach((obj) => {
+    if (obj.email === res.locals.user.email) {
+      rating = obj.starRating;
+    }
+  });
+  res.render('deleteTrack', { trackObj, rating });
+}
+
+module.exports.deleteTrack_post = async (req, res) => {
+  let { track, artist, rating } = req.body;
+  rating = parseInt(rating);
+  const trackObj = await trackColl.findOne({
+    track: { $regex: track, $options: "i" },
+    artist: { $regex: artist, $options: "i" },
+  });
+  if (trackObj) {
+    // Update user's playlist array.
+    userColl.updateOne({ email: res.locals.user.email }, {
+      $pull: {
+        playlist: {
+          track,
+          artist
+        }
+      }
+    });
+    // Update track's ratedBy array.
+    trackColl.updateOne({ track: { $regex: track, $options: "i" }, artist: { $regex: artist, $options: "i" } }, {
+      $pull: {
+        ratedBy: {
+          userID: res.locals.user._id,
+          email: res.locals.user.email
+        }
+      }
+    });
+    res.status(200).json({
+      trackObj: {
+        track,
+        artist,
+      },
+    });
+  }
+}

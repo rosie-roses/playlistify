@@ -11,5 +11,7 @@ generalRouter.get('/add-track', requireAuth, controller.addTrack_get);
 generalRouter.post('/add-track', requireAuth, controller.addTrack_post);
 generalRouter.get('/edit-track', requireAuth, controller.editTrack_get);
 generalRouter.post('/edit-track', requireAuth, controller.editTrack_post);
+generalRouter.get('/delete-track', requireAuth, controller.deleteTrack_get);
+generalRouter.post('/delete-track', requireAuth, controller.deleteTrack_post);
 
 module.exports = generalRouter;

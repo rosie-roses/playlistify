@@ -39,7 +39,7 @@
                     <td><%= playlist[i].artist %></td>
                     <td><%= playlist[i].rating %></td>
                     <td><a href="/edit-track?id=<%= playlist[i].trackID%>">edit</a></td>
-                    <td>delete</td>
+                    <td><a href="/delete-track?id=<%= playlist[i].trackID%>">delete</a></td>
                 </tr>
             <% } %>
         </tbody>
