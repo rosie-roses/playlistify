@@ -105,13 +105,16 @@ module.exports.addTrack_get = (req, res) => {
 
 module.exports.addTrack_post = async (req, res) => {
   let { track, artist, rating } = req.body;
+  let imageUrl;
   rating = parseInt(rating);
 
   const trackObj = await trackColl.findOne({
     track: { $regex: track, $options: "i" },
     artist: { $regex: artist, $options: "i" },
   });
+
   let alreadyRated = false;
+
   // Track being added already exists in the tracks collection.
   if (trackObj) {
     // Check if the current user trying to add the already has the track in their playlist.
@@ -150,10 +153,10 @@ module.exports.addTrack_post = async (req, res) => {
           $push: {
             playlist: {
               trackID: trackObj._id,
-              track,
-              artist,
+              track: trackObj.track,
+              artist: trackObj.artist,
               rating,
-              imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
+              imageUrl: trackObj.imageUrl,
             }, //inserted data is the object to be inserted
           },
         }
@@ -168,11 +171,41 @@ module.exports.addTrack_post = async (req, res) => {
   } 
   // Track being added doesn't exist in the tracks collection.
   else {
+    // First find for the track with music API.
+    const options = {
+      method: "POST",
+      url: "https://musicapi13.p.rapidapi.com/search",
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": "3a738e7ef6msh0fe74ae3cdc082cp16caf2jsn69ace3468f25",
+        "X-RapidAPI-Host": "musicapi13.p.rapidapi.com",
+      },
+      data: `{"track":"${track}","artist":"${artist}","type":"track","sources":["spotify"]}`,
+    };
+    let response = await axios.request(options);
+    let retrieved_track, retrieved_artist, retrieved_imageUrl;
+    const track_data = response.data.tracks;
+    for (var key of Object.keys(track_data)) {
+      if (key === "0") {
+        const info = track_data[key];
+        if ((info.data.status = "success")) {
+          retrieved_track = info.data.name;
+          retrieved_artist = info.data.artistNames[0];
+          retrieved_imageUrl = info.data.imageUrl;
+        } else {
+          console.log("Unsuccessful getting track from music API :(");
+        }
+      }
+    }
+    track = retrieved_track;
+    artist = retrieved_artist;
+    imageUrl = retrieved_imageUrl;
+
     // So add it to the tracks collection.
     const addedTrackId = (await trackColl.insertOne({
       track,
       artist,
-      imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
+      imageUrl,
       ratedBy: [
         {
           userID: res.locals.user._id,
@@ -192,7 +225,7 @@ module.exports.addTrack_post = async (req, res) => {
             track,
             artist,
             rating,
-            imageUrl: "https://images.squarespace-cdn.com/content/v1/5d2e2c5ef24531000113c2a4/1564770289250-9FPM7TAI5O56U9JQTPVO/album-placeholder.png?format=500w",
+            imageUrl,
           }, //inserted data is the object to be inserted
         },
       }
@@ -204,38 +237,6 @@ module.exports.addTrack_post = async (req, res) => {
       },
     });
   }
-};
-
-function getTrackInfo(track, artist) {
-  const options = {
-    method: "POST",
-    url: "https://musicapi13.p.rapidapi.com/search",
-    headers: {
-      "content-type": "application/json",
-      "X-RapidAPI-Key": "3a738e7ef6msh0fe74ae3cdc082cp16caf2jsn69ace3468f25",
-      "X-RapidAPI-Host": "musicapi13.p.rapidapi.com",
-    },
-    data: `{"track":"${track}","artist":"${artist}","type":"track","sources":["spotify"]}`,
-  };
-  axios
-    .request(options)
-    .then(function (response) {
-      for (var key of Object.keys(response.data.tracks)) {
-        if (key === "0") {
-          const info = response.data.tracks[key];
-          if ((info.data.status = "success")) {
-            console.log(info.data.name);
-            console.log(info.data.artistNames[0]);
-            console.log(info.data.imageUrl);
-          } else {
-            console.log("Unsuccessful getting track from music API :(");
-          }
-        }
-      }
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
 }
 
 module.exports.editTrack_get = async (req, res) => {
