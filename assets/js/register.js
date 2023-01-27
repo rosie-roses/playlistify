@@ -22,7 +22,6 @@ form.addEventListener('submit', async (ev) => {
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
-        console.log(data);
         if (data.errors) {
             emailError.textContent = data.errors.email;
             passwordError.textContent = data.errors.password;
