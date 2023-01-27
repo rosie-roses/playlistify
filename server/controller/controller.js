@@ -56,9 +56,9 @@ module.exports.logout_get = (req, res) => {
 };
 
 module.exports.register_post = async (req, res) => {
-  const { email, username, password } = req.body;
+  const { email, username, photo, password } = req.body;
   try {
-    const user = await User.create({ email, username, password });
+    const user = await User.create({ email, username, photo, password });
     const token = createToken(user._id);
     res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
     res.status(201).json({ user: user._id });
@@ -141,6 +141,7 @@ module.exports.addTrack_post = async (req, res) => {
               userID: res.locals.user._id,
               email: res.locals.user.email,
               username: res.locals.user.username,
+              photo: res.locals.user.photo,
               starRating: rating,
             },
           },
@@ -211,6 +212,7 @@ module.exports.addTrack_post = async (req, res) => {
           userID: res.locals.user._id,
           email: res.locals.user.email,
           username: res.locals.user.username,
+          photo: res.locals.user.photo,
           starRating: rating,
         },
       ],

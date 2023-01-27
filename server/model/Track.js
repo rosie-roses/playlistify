@@ -7,9 +7,10 @@ let trackSchema = new mongoose.Schema({
     ratedBy: [
         {
             user: {
-                userID: String,
+                userID: mongoose.Schema.Types.ObjectId,
                 email: String,
                 username: String,
+                photo: String,
             },
             starRating: Number,
         },

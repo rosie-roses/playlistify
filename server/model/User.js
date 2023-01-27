@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please enter an username.'],
     },
+    photo: {
+        type: String
+    },
     password: {
         type: String,
         required: [true, 'Please enter an password.'],
@@ -21,7 +24,7 @@ const userSchema = new mongoose.Schema({
     },
     playlist: [
         {
-            trackID: String,
+            trackID: mongoose.Schema.Types.ObjectId,
             track: String,
             artist: String,
             rating: Number,

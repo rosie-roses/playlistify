@@ -12,11 +12,13 @@ form.addEventListener('submit', async (ev) => {
     // Get the values.
     const email = form.email.value;
     const username = form.username.value;
+    const photo = form.photo.value;
     const password = form.password.value;
+
     try {
         const res = await fetch('/register', {
             method: 'POST',
-            body: JSON.stringify({ email, username, password }),
+            body: JSON.stringify({ email, username, photo, password }),
             headers: { 'Content-Type': 'application/json' }
         });
         const data = await res.json();
