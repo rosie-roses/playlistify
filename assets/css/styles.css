@@ -9,6 +9,11 @@ body {
   font-family: "Space Mono", monospace;
 }
 
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
 img {
   opacity: 1;
   border: 0;
@@ -35,11 +40,11 @@ a:hover {
 
 /** Header **/
 
-.index-header {
+.profile-header {
   margin: 0 auto 65px auto;
 }
 
-.index-header .top-bar {
+.profile-header .top-bar {
   background-color: black;
   color: white;
   padding: 20px;
@@ -54,7 +59,7 @@ a:hover {
   float: right;
 }
 
-.index-header .profile-photo {
+.profile-header .profile-photo {
   display: block;
   margin: 0 auto;
   width: 75px;
@@ -62,7 +67,7 @@ a:hover {
   border-radius: 100%;
 }
 
-.index-header .title {
+.profile-header .title {
   display: block;
   text-align: center;
   margin: 50px auto;
@@ -139,9 +144,110 @@ tr:last-child td {
   color: #ff4d6d;
 }
 
-.top-section {
+.index-header {
+  width: 100vw;
+  height: 100vh;
+}
+
+.index-header a {
+  color: white;
+}
+
+.first-half {
   position: absolute;
   top: 0;
-  width: 100vw;
+  width: 100%;
+  height: calc(50% - 80px);
+  z-index: 3;
+}
+
+.bottom-half {
+  z-index: 2;
+  position: absolute;
+  top: calc(50% - 70px);
+  width: 100%;
+  height: calc(50% + 70px);
+  background-image: url("../img/top-section.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.auth-buttons {
+  margin-top: 25px;
+  margin-right: 20px;
+  float: right;
+}
+
+.register-button,
+.login-button,
+.google-login-button,
+.next-section {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.register-button {
+  background-color: #9595cb;
+}
+
+.login-button {
+  background-color: #c889ba;
+}
+
+.google-login-button {
+  background-color: #d59176;
+}
+
+.custom-underline {
+  background-image: linear-gradient(to right, #9595cb , #c889ba, #d59176, #ffe3a9, #dce8b8, #d3e6d0);
+  border-radius: 10px;
+  width: 16%;
+  height: 7px;
+}
+
+.index-text {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.index-text h1 {
+  font-style: italic;
+  font-size: 30px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.index-desc {
+  display: inline-block;
+  margin: 30px 0;
+}
+
+.next-section {
+  margin-right: 0;
+  margin-left: 50px;
+  border: 1px solid #d3d3d3;
+  border-bottom: 5px solid #ffe3a9;
+  cursor: pointer;
+}
+
+.next-section:hover {
+  border: 1px solid #d3d3d3;
+  border-bottom-width: 5px;
+  border-bottom-color: #d3e6d0;
+}
+
+.next-section .material-symbols-outlined {
+  display: inline-block;
+  vertical-align: middle;
+  color: #888888;
+}
+
+.index-content {
   height: 100vh;
 }
