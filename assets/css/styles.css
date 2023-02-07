@@ -35,11 +35,11 @@ a:hover {
 
 /** Header **/
 
-header {
+.index-header {
   margin: 0 auto 65px auto;
 }
 
-header .top-bar {
+.index-header .top-bar {
   background-color: black;
   color: white;
   padding: 20px;
@@ -54,7 +54,7 @@ header .top-bar {
   float: right;
 }
 
-header .profile-photo {
+.index-header .profile-photo {
   display: block;
   margin: 0 auto;
   width: 75px;
@@ -62,7 +62,7 @@ header .profile-photo {
   border-radius: 100%;
 }
 
-header .title {
+.index-header .title {
   display: block;
   text-align: center;
   margin: 50px auto;
@@ -137,4 +137,11 @@ tr:last-child td {
 
 .delete a {
   color: #ff4d6d;
+}
+
+.top-section {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 }
