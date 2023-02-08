@@ -169,7 +169,7 @@ tr:last-child td {
   top: calc(50% - 70px);
   width: 100%;
   height: calc(50% + 70px);
-  background-image: url("../img/top-section.jpg");
+  background-image: url("../img/index.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -188,7 +188,7 @@ tr:last-child td {
   padding: 10px;
   border-radius: 10px;
   text-transform: uppercase;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   letter-spacing: 1px;
   margin-right: 5px;
 }
@@ -206,20 +206,30 @@ tr:last-child td {
 }
 
 .custom-underline,
-.register-custom-underline {
-  background-image: linear-gradient(to right, #9595cb , #c889ba, #d59176, #ffe3a9, #dce8b8, #d3e6d0);
+.register-custom-underline,
+.login-custom-underline {
+  background-image: linear-gradient(
+    to right,
+    #9595cb,
+    #c889ba,
+    #d59176,
+    #ffe3a9,
+    #dce8b8,
+    #d3e6d0
+  );
   border-radius: 10px;
   width: 16%;
   height: 7px;
 }
 
 .index-text {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-top: 75px;
+  margin-left: 75px;
 }
 
 .index-text h1,
-.register-title {
+.register-title,
+.login-title {
   font-style: italic;
   font-size: 30px;
   font-weight: normal;
@@ -233,7 +243,7 @@ tr:last-child td {
 
 .next-section {
   margin-right: 0;
-  margin-left: 50px;
+  margin-left: 75px;
   background-color: #ffffff;
   border: 1px solid #d3d3d3;
   border-bottom: 5px solid #ffe3a9;
@@ -258,7 +268,7 @@ tr:last-child td {
 
 .form-content {
   display: inline-block;
-  padding-top: 50px;
+  padding-top: 75px;
   padding-left: 75px;
   width: calc(50vw - 75px);
 }
@@ -282,7 +292,7 @@ input {
 
 label {
   text-transform: uppercase;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 12px;
   margin-bottom: 10px;
   letter-spacing: 1px;
@@ -291,7 +301,7 @@ label {
 }
 
 label:after {
-  content: ':';
+  content: ":";
 }
 
 input {
@@ -299,33 +309,37 @@ input {
   padding: 10px 8px;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   background-color: #fafafae7;
   color: #444444;
 }
 
 input:focus {
   outline: none !important;
-  border: 2px solid #294881;
+  border: 2px solid #5e2574;
 }
 
-.register-title {
+.register-title,
+.login-title {
   font-size: 27px;
   color: #222222;
 }
 
-.register-desc {
-  margin: 40px 0;
+.register-desc,
+.login-desc {
+  margin: 30px 0;
   width: 50%;
   line-height: 200%;
 }
 
-.register-custom-underline {
-  margin-top: 40px;
-  width: 40%;
+.register-custom-underline,
+.login-custom-underline {
+  margin-top: 30px;
+  width: 30%;
 }
 
-.register-image-half {
+.register-image-half,
+.login-image-half {
   display: inline-block;
   position: absolute;
   width: 50vw;
@@ -337,10 +351,15 @@ input:focus {
   height: 75vh;
 }
 
-#register_user {
+.login-image-half {
+  background-image: url("../img/login.jpg");
+}
+
+#register_user,
+#login_user {
   padding: 10px;
   text-transform: uppercase;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   letter-spacing: 1px;
   border-radius: 10px;
   color: #ffffff;
@@ -350,7 +369,17 @@ input:focus {
   width: 100%;
 }
 
+#login_user {
+  border-color: #ec849f;
+  background-color: #ec849f;
+}
+
 #register_user:hover {
   border-color: #ec6083;
   background-color: #ec6083;
+}
+
+#login_user:hover {
+  border-color: #6ac4cf;
+  background-color: #6ac4cf;
 }
