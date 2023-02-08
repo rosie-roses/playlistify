@@ -7,6 +7,8 @@ body {
   font-size: 13px;
   letter-spacing: 0.5px;
   font-family: "Space Mono", monospace;
+  line-height: 160%;
+  color: #222222;
 }
 
 h1 {
@@ -45,7 +47,7 @@ a:hover {
 }
 
 .profile-header .top-bar {
-  background-color: black;
+  background-color: #000000;
   color: white;
   padding: 20px;
   margin: 0 0 100px 0;
@@ -96,7 +98,7 @@ thead {
   position: sticky;
   top: 0;
   font-size: 16px;
-  background-color: black;
+  background-color: #000000;
   color: white;
 }
 
@@ -188,7 +190,6 @@ tr:last-child td {
   text-transform: uppercase;
   font-family: 'Roboto Mono', monospace;
   letter-spacing: 1px;
-  font-size: 12px;
   margin-right: 5px;
 }
 
@@ -204,7 +205,8 @@ tr:last-child td {
   background-color: #d59176;
 }
 
-.custom-underline {
+.custom-underline,
+.register-custom-underline {
   background-image: linear-gradient(to right, #9595cb , #c889ba, #d59176, #ffe3a9, #dce8b8, #d3e6d0);
   border-radius: 10px;
   width: 16%;
@@ -216,7 +218,8 @@ tr:last-child td {
   margin-left: 50px;
 }
 
-.index-text h1 {
+.index-text h1,
+.register-title {
   font-style: italic;
   font-size: 30px;
   font-weight: normal;
@@ -231,6 +234,7 @@ tr:last-child td {
 .next-section {
   margin-right: 0;
   margin-left: 50px;
+  background-color: #ffffff;
   border: 1px solid #d3d3d3;
   border-bottom: 5px solid #ffe3a9;
   cursor: pointer;
@@ -250,4 +254,103 @@ tr:last-child td {
 
 .index-content {
   height: 100vh;
+}
+
+.form-content {
+  display: inline-block;
+  padding-top: 50px;
+  padding-left: 75px;
+  width: calc(50vw - 75px);
+}
+
+.form {
+  margin-top: 20px;
+  border: 1px solid #d3d3d3;
+  padding: 20px;
+  width: 75%;
+  border-radius: 10px;
+}
+
+.form_group {
+  margin-bottom: 30px;
+}
+
+label,
+input {
+  display: block;
+}
+
+label {
+  text-transform: uppercase;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 12px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  color: #333333;
+  font-weight: 700;
+}
+
+label:after {
+  content: ':';
+}
+
+input {
+  width: calc(100% - 15px);
+  padding: 10px 8px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  font-family: 'Space Mono', monospace;
+  background-color: #fafafae7;
+  color: #444444;
+}
+
+input:focus {
+  outline: none !important;
+  border: 2px solid #294881;
+}
+
+.register-title {
+  font-size: 27px;
+  color: #222222;
+}
+
+.register-desc {
+  margin: 40px 0;
+  width: 50%;
+  line-height: 200%;
+}
+
+.register-custom-underline {
+  margin-top: 40px;
+  width: 40%;
+}
+
+.register-image-half {
+  display: inline-block;
+  position: absolute;
+  width: 50vw;
+  top: 25%;
+  left: 50%;
+  background-image: url("../img/register.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 75vh;
+}
+
+#register_user {
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #9663a6;
+  border: 1px solid #9663a6;
+  cursor: pointer;
+  width: 100%;
+}
+
+#register_user:hover {
+  border-color: #ec6083;
+  background-color: #ec6083;
 }
