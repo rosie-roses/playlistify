@@ -17,11 +17,10 @@
     <title>Playlistify - Add Track</title>
 </head>
 <body>
-    <div class="container">
     <!-- Main -->
+    <div class="container">
         <section class="form-content">
             <h1 class="form-title">Add Track to your playlist.</h1>
-            <div class="login-custom-underline"></div>
             <p class="form-desc">
                 Type in the track name and its artist, along with your rating to add the track to your favourite playlist :)
             </p>
@@ -39,29 +38,29 @@
                         <label for="track_rating" style="display: inline-block">Star rating:</label>
                         <div class="star-rating">
                             <li>
-                                <input type="radio" name="stars" value="1" />
+                                <input type="radio" class="one-rating" name="stars" value="1" />
                                 <label for="1-star">1 (<span>✭</span>)</label>
                             </li>
                             <li>
-                                <input type="radio" name="stars" value="2" />
+                                <input type="radio" class="two-rating" name="stars" value="2" />
                                 <label for="2-star">2 (<span>✭✭</span>)</label>
                             </li>
                             <li>
-                                <input type="radio" name="stars" value="3" />
+                                <input type="radio" class="three-rating" name="stars" value="3" />
                                 <label for="3-star">3 (<span>✭✭✭</span>)</label>
                             </li>
                             <li>
-                                <input type="radio" name="stars" value="4" />
+                                <input type="radio" class="four-rating" name="stars" value="4" />
                                 <label for="4-star">4 (<span>✭✭✭✭</span>)</label>
                             </li>
                             <li>
-                                <input type="radio" name="stars" value="5" />
+                                <input type="radio" class="five-rating" name="stars" value="5" />
                                 <label for="5-star">5 (<span>✭✭✭✭✭</span>)</label>
                             </li>
                         </div>
                     </div>
                     <div class="error_output"></div>
-                    <button id="add_track">Add to playlist!</button>
+                    <button id="add_track">Add new track</button>
                 </form>
             </div>
         </section>

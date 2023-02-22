@@ -376,7 +376,8 @@ input:focus {
 
 #register_user,
 #login_user,
-#add_track {
+#add_track,
+#edit_track {
   padding: 10px;
   text-transform: uppercase;
   font-family: "Space Mono", monospace;
@@ -404,13 +405,14 @@ input:focus {
   background-color: #6ac4cf;
 }
 
-#add_track {
-  margin-top: -10px;
+#add_track,
+#edit_track:hover {
   border-color: #9663a6;
   background-color: #9663a6;
 }
 
-#add_track:hover {
+#add_track:hover,
+#edit_track {
   border-color: #ec6083;
   background-color: #ec6083;
 }
@@ -430,4 +432,24 @@ input[type="radio"] {
 
 .star-rating label span {
   font-size: 20px;
+}
+
+.one-rating:checked {
+  accent-color: #9595cb;
+}
+
+.two-rating:checked {
+  accent-color: #c889ba;
+}
+
+.three-rating:checked {
+  accent-color: #d59176;
+}
+
+.four-rating:checked {
+  accent-color: #ffe3a9;
+}
+
+.five-rating:checked {
+  accent-color: #dce8b8;
 }
