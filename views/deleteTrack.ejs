@@ -4,49 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
     <title>Playlistify - Delete Track</title>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav>
-            <div class="container">
-                <h1>Delete a track from your playlist</h1>
-            </div>
-        </nav>
-    </header>
-    <!-- /Header -->
     <!-- Main -->
     <div class="container">
-        <div class="form">
-            <form autocomplete="off">
-                <div class="form_group">
-                    <label for="track_name">Track Name</label>
-                    <input type="text" name="track_name" value="<%= trackObj.track %>" disabled/>
-                </div>
-                <div class="form_group">
-                    <label for="track_artist">Track Artist</label>
-                    <input type="text" name="track_artist" value="<%= trackObj.artist %>" disabled/>
-                </div>
-                <div class="form_group">
-                    <label for="track_rating" style="display: inline-block">Star rating</label>
-                    <div class="star-rating">
-                      <input type="radio" name="stars" value="1" <%= rating == 1 ? 'checked':''%>/>
-                      <label for="1-star">1</label><br />
-                      <input type="radio" name="stars" value="2" <%= rating == 2 ? 'checked':''%>/>
-                      <label for="2-star">2</label><br />
-                      <input type="radio" name="stars" value="3"<%= rating == 3 ? 'checked':''%>/>
-                      <label for="3-star">3</label><br />
-                      <input type="radio" name="stars" value="4" <%= rating == 4 ? 'checked':''%>/>
-                      <label for="4-star">4</label><br />
-                      <input type="radio" name="stars" value="5" <%= rating == 5 ? 'checked':''%>/>
-                      <label for="5-star">5</label><br />
+        <section class="form-content">
+            <h1 class="form-title">Delete track from playlist.</h1>
+            <p class="form-desc">
+                Delete the current chosen track from your favourite playlist. Yup that's possible too!
+            </p>
+            <div class="form">
+                <form autocomplete="off">
+                    <div class="form-group">
+                        <label for="track_name">Track Name:</label>
+                        <input type="text" name="track_name" value="<%= trackObj.track %>" disabled/>
                     </div>
-                </div>
-                <div class="error_output"></div>
-                <button id="add_track">Delete track</button>
-            </form>
-        </div>
+                    <div class="form-group">
+                        <label for="track_artist">Track Artist:</label>
+                        <input type="text" name="track_artist" value="<%= trackObj.artist %>" disabled/>
+                    </div>
+                    <div class="form-group">
+                        <label for="track_rating" style="display: inline-block">Star rating:</label>
+                        <div class="star-rating">
+                            <li>
+                                <input type="radio" name="stars" value="1" <%= rating == 1 ? 'checked':'disabled'%> />
+                                <label for="1-star">1 (<span>✭</span>)</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="stars" value="2" <%= rating == 2 ? 'checked':'disabled'%>/>
+                                <label for="2-star">2 (<span>✭✭</span>)</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="stars" value="3"<%= rating == 3 ? 'checked':'disabled'%>/>
+                                <label for="3-star">3 (<span>✭✭✭</span>)</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="stars" value="4" <%= rating == 4 ? 'checked':'disabled'%>/>
+                                <label for="4-star">4 (<span>✭✭✭✭</span>)</label>
+                            </li>
+                            <li>
+                                <input type="radio" name="stars" value="5" <%= rating == 5 ? 'checked':'disabled'%>/>
+                                <label for="5-star">5 (<span>✭✭✭✭✭</span>)</label>
+                            </li>
+                        </div>
+                    </div>
+                    <div class="error_output"></div>
+                    <button id="delete_track">Delete chosen track</button>
+                </form>
+            </div>
+        </section>
     </div>
     <!-- /Main -->
     <script src="js/deleteTrack.js"></script>
