@@ -19,11 +19,23 @@
   <body>
     <!-- Main -->
     <div class="container">
+      <header class="profile-header" style="margin-bottom: 20px;">
+        <div class="top-bar">
+          <img src="<%= user.photo %>" class="profile-photo" />
+          <div class="deets">Logged in as <u><%= user.email %></u></div>
+          <a class="logout" href="/logout"
+            ><i class="material-icons-round">logout</i>Log out</a
+          >
+          <a class="profile-button" href="/profile"
+            ><i class="material-icons-round">person</i>Go to profile</a
+          >
+        </div>
+      </header>
       <section class="form-content">
         <h1 class="form-title">Delete track from playlist.</h1>
         <p class="form-desc">
           Delete the current chosen track from your favourite playlist. Yup
-          that's possible too!
+          that's possible too! (۶•̀ᴗ•́)۶
         </p>
         <div class="form">
           <form autocomplete="off">

@@ -19,11 +19,23 @@
   <body>
     <!-- Main -->
     <div class="container">
+      <header class="profile-header" style="margin-bottom: 20px;">
+        <div class="top-bar">
+          <img src="<%= user.photo %>" class="profile-photo" />
+          <div class="deets">Logged in as <u><%= user.email %></u></div>
+          <a class="logout" href="/logout"
+            ><i class="material-icons-round">logout</i>Log out</a
+          >
+          <a class="profile-button" href="/profile"
+            ><i class="material-icons-round">person</i>Go to profile</a
+          >
+        </div>
+      </header>
       <section class="form-content">
         <h1 class="form-title">Edit your track rating.</h1>
         <p class="form-desc">
           Change your current star rating for the chosen track in the form below
-          to a new one. Yeah we can do that indeed!
+          to a new one. Yeah we can do that indeed! ( ੭ ･ᴗ･ )੭
         </p>
         <div class="form">
           <form autocomplete="off">

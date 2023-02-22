@@ -56,7 +56,8 @@ a:hover {
 }
 
 .top-bar .logout,
-.top-bar .add-track-button {
+.top-bar .add-track-button,
+.top-bar .profile-button {
   float: right;
 }
 
@@ -74,8 +75,8 @@ a:hover {
   text-align: center;
   margin: 50px auto;
   text-transform: capitalize;
-  font-size: 20px;
   letter-spacing: 1px;
+  font-size: 27px;
 }
 
 /** Table **/
@@ -202,7 +203,8 @@ tr:last-child td {
 .google-login-button,
 .next-section,
 .logout,
-.add-track-button {
+.add-track-button,
+.profile-button {
   display: inline-block;
   padding: 10px;
   border-radius: 10px;
@@ -230,18 +232,25 @@ tr:last-child td {
 }
 
 .logout,
-.add-track-button {
+.add-track-button,
+.profile-button {
   background-color: #4b585a;
   margin-top: 3px;
 }
 
-.add-track-button {
+.add-track-button,
+.profile-button {
   margin-right: 10px;
   background-color: #066c1e;
 }
 
+.profile-button {
+  background-color: #9663a6;
+}
+
 .logout i,
-.add-track-button i {
+.add-track-button i,
+.profile-button i {
   vertical-align: middle;
   margin-right: 10px;
 }
@@ -271,7 +280,8 @@ tr:last-child td {
 .index-text h1,
 .register-title,
 .login-title,
-.form-title {
+.form-title,
+.title {
   font-style: italic;
   font-size: 30px;
   font-weight: normal;
@@ -316,7 +326,7 @@ tr:last-child td {
 }
 
 .form-content {
-  padding-top: 75px;
+  margin-top: -25px;
   padding-left: 75px;
 }
 
