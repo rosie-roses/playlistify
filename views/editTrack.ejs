@@ -51,7 +51,8 @@
               >
               <div class="star-rating">
                 <li>
-                  <input type="radio" name="stars" value="1" />
+                  <input type="radio" name="stars" value="1" <%= rating == 1 ?
+                  'checked':''%> />
                   <label for="1-star"
                     >1 star -
                     <i class="material-icons-round star-icon"
@@ -60,7 +61,8 @@
                   >
                 </li>
                 <li>
-                  <input type="radio" name="stars" value="2" />
+                  <input type="radio" name="stars" value="2" <%= rating == 2 ?
+                  'checked':''%>/>
                   <label for="2-star">
                     2 stars - <% for(var i = 0; i < 2; i++) { %>
                     <i class="material-icons-round star-icon">star_rate</i>
@@ -68,7 +70,8 @@
                   </label>
                 </li>
                 <li>
-                  <input type="radio" name="stars" value="3" />
+                  <input type="radio" name="stars" value="3"<%= rating == 3 ?
+                  'checked':''%>/>
                   <label for="3-star">
                     3 stars - <% for(var i = 0; i < 3; i++) { %>
                     <i class="material-icons-round star-icon">star_rate</i>
@@ -76,7 +79,8 @@
                   </label>
                 </li>
                 <li>
-                  <input type="radio" name="stars" value="4" />
+                  <input type="radio" name="stars" value="4" <%= rating == 4 ?
+                  'checked':''%>/>
                   <label for="4-star">
                     4 stars - <% for(var i = 0; i < 4; i++) { %>
                     <i class="material-icons-round star-icon">star_rate</i>
@@ -84,7 +88,8 @@
                   </label>
                 </li>
                 <li>
-                  <input type="radio" name="stars" value="5" />
+                  <input type="radio" name="stars" value="5" <%= rating == 5 ?
+                  'checked':''%>/>
                   <label for="5-star">
                     5 stars - <% for(var i = 0; i < 5; i++) { %>
                     <i class="material-icons-round star-icon">star_rate</i>
