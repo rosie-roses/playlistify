@@ -26,7 +26,6 @@ img {
 }
 
 a {
-  color: white;
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s linear;
@@ -47,9 +46,8 @@ a:hover {
 }
 
 .profile-header .top-bar {
-  background-color: #000000;
-  color: white;
-  padding: 20px;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 20px 30px;
   margin: 0 0 100px 0;
 }
 
@@ -57,16 +55,18 @@ a:hover {
   display: inline-block;
 }
 
-.top-bar .logout {
+.top-bar .logout,
+.top-bar .add-track-button {
   float: right;
 }
 
 .profile-header .profile-photo {
-  display: block;
-  margin: 0 auto;
-  width: 75px;
-  height: 75px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
   border-radius: 100%;
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .profile-header .title {
@@ -87,23 +87,26 @@ a:hover {
 
 table {
   border-collapse: separate;
-  border-spacing: 0;
-  background-color: white;
   width: 75%;
-  border: 1px solid #cccccc;
+  border-spacing: 0;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
+  margin-bottom: 75px;
 }
 
 thead {
   position: sticky;
   top: 0;
-  font-size: 16px;
+  font-size: 15px;
   background-color: #000000;
-  color: white;
+  color: #ffffff;
 }
 
 th {
   font-weight: normal;
+  font-family: "Roboto Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 thead th:first-of-type {
@@ -116,13 +119,24 @@ thead th:last-of-type {
 
 td,
 th {
-  padding: 10px;
+  padding: 20px 30px;
   text-align: left;
 }
 
 tr td {
-  font-size: 14px;
-  border-bottom: 1px solid #cccccc;
+  font-size: 13px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+tr td:last-child {
+  width: 10%;
+  text-align: center;
+}
+
+tr td:nth-child(2),
+tr td:nth-child(3),
+tr td:nth-child(4) {
+  width: 20%;
 }
 
 tr:last-child td {
@@ -130,29 +144,27 @@ tr:last-child td {
 }
 
 .cover-art-data img {
-  width: 75px;
+  width: 90px;
   height: auto;
+  border-radius: 5px;
 }
 
 .cover-art-data {
-  width: 10%;
+  width: 15%;
 }
 
-.edit a {
-  color: #4d8eff;
+.edit {
+  color: #0c60aa;
+  margin-right: 5px;
 }
 
-.delete a {
-  color: #ff4d6d;
+.delete {
+  color: #aa0c0c;
 }
 
 .index-header {
   width: 100vw;
   height: 100vh;
-}
-
-.index-header a {
-  color: white;
 }
 
 .first-half {
@@ -183,7 +195,9 @@ tr:last-child td {
 .register-button,
 .login-button,
 .google-login-button,
-.next-section {
+.next-section,
+.logout,
+.add-track-button {
   display: inline-block;
   padding: 10px;
   border-radius: 10px;
@@ -191,6 +205,11 @@ tr:last-child td {
   font-family: "Roboto Mono", monospace;
   letter-spacing: 1px;
   margin-right: 5px;
+  color: #ffffff;
+}
+
+.next-section {
+  color: #222222;
 }
 
 .register-button {
@@ -203,6 +222,23 @@ tr:last-child td {
 
 .google-login-button {
   background-color: #d59176;
+}
+
+.logout,
+.add-track-button {
+  background-color: #4b585a;
+  margin-top: 3px;
+}
+
+.add-track-button {
+  margin-right: 10px;
+  background-color: #066c1e;
+}
+
+.logout i,
+.add-track-button i {
+  vertical-align: middle;
+  margin-right: 10px;
 }
 
 .custom-underline,
@@ -257,7 +293,7 @@ tr:last-child td {
   border-bottom-color: #d3e6d0;
 }
 
-.next-section .material-symbols-outlined {
+.next-section .expand-more {
   display: inline-block;
   vertical-align: middle;
   color: #888888;
@@ -345,10 +381,17 @@ input:focus {
 
 .register-desc,
 .login-desc,
-.form-desc {
+.form-desc,
+.desc {
   margin: 30px 0;
   width: 50%;
   line-height: 200%;
+  color: #6a6a6a;
+}
+
+.desc {
+  margin: 30px auto;
+  text-align: center;
 }
 
 .register-custom-underline,
@@ -402,13 +445,13 @@ input:focus {
 }
 
 #edit_track {
-  border-color: #294881;
-  background-color: #294881;
+  border-color: #0c60aa;
+  background-color: #0c60aa;
 }
 
 #delete_track {
-  border-color: #8d1811;
-  background-color: #8d1811;
+  border-color: #aa0c0c;
+  background-color: #aa0c0c;
 }
 
 .star-rating li {
@@ -420,10 +463,19 @@ input:focus {
   display: inline-block;
 }
 
-input[type="radio"] {
-  vertical-align: text-top;
-}
-
 .star-rating label span {
   font-size: 20px;
+}
+
+.star-icon {
+  color: #dba716;
+  vertical-align: bottom;
+}
+
+li label {
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
 }
