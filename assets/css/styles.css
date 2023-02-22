@@ -218,7 +218,7 @@ tr:last-child td {
     #d3e6d0
   );
   border-radius: 10px;
-  width: 16%;
+  width: 17%;
   height: 7px;
 }
 
@@ -229,7 +229,8 @@ tr:last-child td {
 
 .index-text h1,
 .register-title,
-.login-title {
+.login-title,
+.form-title {
   font-style: italic;
   font-size: 30px;
   font-weight: normal;
@@ -266,13 +267,19 @@ tr:last-child td {
   height: 100vh;
 }
 
-.form-content {
+.auth-form-content {
   display: inline-block;
   padding-top: 75px;
   padding-left: 75px;
   width: calc(50vw - 75px);
 }
 
+.form-content {
+  padding-top: 75px;
+  padding-left: 75px;
+}
+
+.auth-form,
 .form {
   margin-top: 20px;
   border: 1px solid #d3d3d3;
@@ -281,12 +288,17 @@ tr:last-child td {
   border-radius: 10px;
 }
 
-.form_group {
+.form {
+  width: 50%;
+}
+
+.auth-form-group,
+.form-group {
   margin-bottom: 30px;
 }
 
-label,
-input {
+.auth-form-group label,
+.auth-form-group input {
   display: block;
 }
 
@@ -300,11 +312,16 @@ label {
   font-weight: 700;
 }
 
-label:after {
+.form-group label {
+  display: block;
+}
+
+.auth-form label:after {
   content: ":";
 }
 
-input {
+input[type="text"],
+input[type="password"] {
   width: calc(100% - 15px);
   padding: 10px 8px;
   border: 1px solid #d3d3d3;
@@ -320,13 +337,15 @@ input:focus {
 }
 
 .register-title,
-.login-title {
+.login-title,
+.form-title {
   font-size: 27px;
   color: #222222;
 }
 
 .register-desc,
-.login-desc {
+.login-desc,
+.form-desc {
   margin: 30px 0;
   width: 50%;
   line-height: 200%;
@@ -356,7 +375,8 @@ input:focus {
 }
 
 #register_user,
-#login_user {
+#login_user,
+#add_track {
   padding: 10px;
   text-transform: uppercase;
   font-family: "Space Mono", monospace;
@@ -382,4 +402,32 @@ input:focus {
 #login_user:hover {
   border-color: #6ac4cf;
   background-color: #6ac4cf;
+}
+
+#add_track {
+  margin-top: -10px;
+  border-color: #9663a6;
+  background-color: #9663a6;
+}
+
+#add_track:hover {
+  border-color: #ec6083;
+  background-color: #ec6083;
+}
+
+.star-rating li {
+  list-style-type: none;
+  margin-bottom: 5px;
+}
+
+.star-rating label {
+  display: inline-block;
+}
+
+input[type="radio"] {
+  vertical-align: text-top;
+}
+
+.star-rating label span {
+  font-size: 20px;
 }
