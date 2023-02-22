@@ -158,8 +158,13 @@ tr:last-child td {
   margin-right: 5px;
 }
 
-.delete {
+.delete,
+.error {
   color: #aa0c0c;
+}
+
+.error {
+  margin-top: 10px;
 }
 
 .index-header {
