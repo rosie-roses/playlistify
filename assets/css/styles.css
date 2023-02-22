@@ -432,6 +432,21 @@ input:focus {
   background-image: url("../img/login.jpg");
 }
 
+.login-extra-detail,
+.register-extra-detail {
+  margin-top: 10px;
+  line-height: 200%;
+  font-style: italic;
+}
+
+.login-extra-detail a {
+  color: #9663a6;
+}
+
+.register-extra-detail a {
+  color: #ec6083;
+}
+
 #register_user,
 #login_user,
 #add_track,
