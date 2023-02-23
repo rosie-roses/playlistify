@@ -86,13 +86,19 @@ a:hover {
   justify-content: center;
 }
 
-table {
+.profile-table,
+.index-table {
   border-collapse: separate;
   width: 75%;
   border-spacing: 0;
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   margin-bottom: 75px;
+}
+
+.index-table {
+  margin: 100px 0 0 0;
+  width: 85%;
 }
 
 thead {
@@ -129,14 +135,14 @@ tr td {
   border-bottom: 1px solid #d3d3d3;
 }
 
-tr td:last-child {
+.profile-table tr td:last-child {
   width: 10%;
   text-align: center;
 }
 
-tr td:nth-child(2),
-tr td:nth-child(3),
-tr td:nth-child(4) {
+.profile-table tr td:nth-child(2),
+.profile-table tr td:nth-child(3),
+.profile-table tr td:nth-child(4) {
   width: 20%;
 }
 

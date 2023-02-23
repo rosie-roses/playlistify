@@ -42,8 +42,9 @@ const createToken = (id) => {
   });
 };
 
-module.exports.index_get = (req, res) => {
-  res.render("index");
+module.exports.index_get = async (req, res) => {
+  const allTracks = await trackColl.find({}).toArray();
+  res.render("index", {allTracks});
 };
 
 module.exports.register_get = (req, res) => {

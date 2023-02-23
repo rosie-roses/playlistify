@@ -43,7 +43,7 @@
       <!-- /Header -->
       <!-- Content -->
       <div class="table-container">
-        <table>
+        <table class="profile-table">
           <thead>
             <tr>
               <th>Cover Art</th>
@@ -61,7 +61,6 @@
               </td>
               <td><%= playlist[i].track %></td>
               <td><%= playlist[i].artist %></td>
-              <!-- playlist[i].rating -->
               <td>
                 <% for(var j = 0; j < playlist[i].rating; j++) { %>
                 <i class="material-icons-round star-icon">star_rate</i>

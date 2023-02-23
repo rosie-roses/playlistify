@@ -49,7 +49,45 @@
         <div class="bottom-half"></div>
       </section>
       <!-- /Header -->
-      <section class="index-content"></section>
+      <section class="index-content">
+        <div class="table-container">
+          <table class="index-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Cover Art</th>
+                <th>Track Name</th>
+                <th>Artist</th>
+                <th>Total Ratings</th>
+                <th># of users rated</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i = 0; i < allTracks.length; i++) { %>
+              <tr>
+                <td><%= i + 1 %></td>
+                <td class="cover-art-data">
+                  <img src="<%= allTracks[i].imageUrl %>" />
+                </td>
+                <td><%= allTracks[i].track %></td>
+                <td><%= allTracks[i].artist %></td>
+                <% let totalRatings = 0; %> 
+                <% for(var j = 0; j < allTracks[i].ratedBy.length; j++) { %>
+                   <% totalRatings += allTracks[i].ratedBy[j].starRating %> 
+                <% } %>
+                <td><%= totalRatings %></td>
+                <td>
+                  <%= allTracks[i].ratedBy.length %> 
+                  <!-- <% for(var j = 0; j < allTracks[i].ratedBy.length; j++) { %>
+                    <li><%= allTracks[i].ratedBy[j].username %></li>
+                  <% } %> -->
+                </td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/index.js"></script>
