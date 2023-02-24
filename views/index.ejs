@@ -83,10 +83,8 @@
                 <% } %>
                 <td><%= totalRatings %></td>
                 <td>
-                    <a href="/track?id=<%= allTracks[i]._id%>"><%= allTracks[i].ratedBy.length %></button>
-                  <!-- <% for(var j = 0; j < allTracks[i].ratedBy.length; j++) { %>
-                    <li><%= allTracks[i].ratedBy[j].username %></li>
-                  <% } %> -->
+                    <a href="/track?id=<%= allTracks[i]._id%>"><%= allTracks[i].ratedBy.length %> 
+                      <%= allTracks[i].ratedBy.length == 1 ? 'user' : 'users' %></a>
                 </td>
               </tr>
               <% } %>

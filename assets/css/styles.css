@@ -135,6 +135,11 @@ tr td {
   border-bottom: 1px solid #d3d3d3;
 }
 
+tr td a {
+  color: #222222;
+  text-decoration: underline;
+}
+
 .profile-table tr td:last-child {
   width: 10%;
   text-align: center;
