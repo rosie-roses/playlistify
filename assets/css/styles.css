@@ -97,7 +97,7 @@ a:hover {
 }
 
 .index-table {
-  margin: 100px 0 0 0;
+  margin: 75px 0;
   width: 85%;
 }
 
@@ -322,6 +322,7 @@ tr:last-child td {
 
 .index-content {
   height: 100vh;
+  padding-top: 100px;
 }
 
 .auth-form-content {
@@ -403,7 +404,8 @@ input:focus {
 .register-desc,
 .login-desc,
 .form-desc,
-.desc {
+.desc,
+.index-content-desc {
   margin: 30px 0;
   width: 50%;
   line-height: 200%;
@@ -514,4 +516,94 @@ li label {
   letter-spacing: normal;
   font-family: "Space Mono", monospace;
   font-size: 13px;
+}
+
+.track-wrapper {
+  width: 75%;
+  border: 1px solid #d3d3d3;
+  margin: 75px auto 50px auto;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.track-wrapper .track-cover {
+  width: 15%;
+  display: inline-block;
+}
+
+.track-wrapper .track-deets {
+  display: inline-block;
+  margin-left: 30px;  
+}
+
+.track-name,
+.track-artist,
+.total-ratings {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+}
+
+.track-name,
+.track-artist {
+  margin-bottom: 15px;
+}
+
+.track-name span,
+.track-artist span,
+.total-ratings span {
+  margin-left: 7px;
+  font-family: "Space Mono", monospace;
+  font-weight: normal;
+}
+
+.rated-list {
+  width: 75%;
+  margin: 75px auto;
+}
+
+.rated-list h2 {
+  letter-spacing: 1px;
+  font-style: italic;
+  font-size: 20px;
+  color: #000000;
+  font-weight: normal;
+}
+
+.rated-list ul {
+  margin-top: 75px;
+}
+
+.rated-list li {
+  list-style-type: decimal-leading-zero;
+  margin-bottom: 50px;
+}
+
+.rated-list li span {
+  color: #777777;
+}
+
+.rated-by-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.index-content-desc {
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+}
+
+.index-content-desc h1 {
+  font-style: italic;
+  margin-bottom: 35px;
+  font-size: 25px;
+  font-weight: normal;
+  color: #000000;
 }

@@ -35,14 +35,14 @@
                 enthusiasts.
               </p>
               <p>
-                <u>Explore</u> what the world's listening to and
+                <u>Explore</u> what the other Playlistify users are listening to<br> and stay in touch with
                 <u>today's popular songs</u>.
               </p>
               <p>All of your <u>favourite songs in one place</u>.</p>
             </div>
           </div>
           <div class="next-section">
-            Checkout the most rated songs of now
+            Checkout all songs stored in Playlistify
             <span class="material-icons-outlined expand-more">expand_more</span>
           </div>
         </div>
@@ -50,6 +50,12 @@
       </section>
       <!-- /Header -->
       <section class="index-content">
+        <div class="index-content-desc">
+          <h1>All songs stored in Playlistify!</h1>
+          The list below shows all the tracks each Playlisty user rated.<br>
+          Click on the star rating for each track to see more details on the ratings.<br>
+          See if you've heard any of the tracks below... (づ •. •)?
+        </div>
         <div class="table-container">
           <table class="index-table">
             <thead>
@@ -69,15 +75,15 @@
                 <td class="cover-art-data">
                   <img src="<%= allTracks[i].imageUrl %>" />
                 </td>
-                <td><%= allTracks[i].track %></td>
-                <td><%= allTracks[i].artist %></td>
+                <td class="trk-post"><%= allTracks[i].track %></td>
+                <td class="artist-post"><%= allTracks[i].artist %></td>
                 <% let totalRatings = 0; %> 
                 <% for(var j = 0; j < allTracks[i].ratedBy.length; j++) { %>
                    <% totalRatings += allTracks[i].ratedBy[j].starRating %> 
                 <% } %>
                 <td><%= totalRatings %></td>
                 <td>
-                  <%= allTracks[i].ratedBy.length %> 
+                    <a href="/track?id=<%= allTracks[i]._id%>"><%= allTracks[i].ratedBy.length %></button>
                   <!-- <% for(var j = 0; j < allTracks[i].ratedBy.length; j++) { %>
                     <li><%= allTracks[i].ratedBy[j].username %></li>
                   <% } %> -->

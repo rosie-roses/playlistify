@@ -331,3 +331,13 @@ module.exports.deleteTrack_post = async (req, res) => {
     });
   }
 }
+
+module.exports.track_get = async (req, res) => {
+  const trackID = mongoose.Types.ObjectId(req.query.id);
+  const track = await trackColl.findOne({ _id: trackID });
+  let totalRatings = 0;
+  for (var i = 0; i < track.ratedBy.length; i++) {
+    totalRatings += track.ratedBy[i].starRating;
+  }
+  res.render('track', { track, totalRatings });
+}

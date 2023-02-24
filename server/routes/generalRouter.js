@@ -13,5 +13,6 @@ generalRouter.get('/edit-track', requireAuth, controller.editTrack_get);
 generalRouter.post('/edit-track', requireAuth, controller.editTrack_post);
 generalRouter.get('/delete-track', requireAuth, controller.deleteTrack_get);
 generalRouter.post('/delete-track', requireAuth, controller.deleteTrack_post);
+generalRouter.get('/track', controller.track_get);
 
 module.exports = generalRouter;
