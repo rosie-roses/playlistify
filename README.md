@@ -13,8 +13,11 @@ Playlistify is hosted live: [https://grumpy-teal-adder.cyclic.app/](https://grum
 3. Music API to add tracks. <br />
 [MusicAPI](https://rapidapi.com/freeyourmusic-freeyourmusic-default/api/musicapi13/) by [FreeYorMusic](https://rapidapi.com/organization/freeyourmusic) from [rapidapi](https://rapidapi.com/).
 
-3. Project folder setup. <br />
+4. Project folder setup. <br />
 [Complete CRUD Application with Node, Express & MongoDB](https://www.youtube.com/watch?v=W1Kttu53qTg&ab_channel=DailyTuition) by [Daily Tuition](https://www.youtube.com/@DailyTuition).
 
-4. Images on index, login and register pages. <br />
+5. Images on index, login and register pages. <br />
 [stockgiu](https://www.vecteezy.com/members/stockgiu) from [Vecteezy](https://www.vecteezy.com/).
+
+6. Profile photo images. <br />
+[ashryvaer.tumblr.com](https://ashryvaer.tumblr.com/iconpage).
